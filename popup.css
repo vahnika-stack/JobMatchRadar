@@ -1,0 +1,175 @@
+/*
+ * Visual direction: a drafting sheet. Cool gray-blue paper, ink-navy text,
+ * one cobalt accent for interaction. The traffic-light colors appear only in
+ * the job-page badge, so they keep their meaning.
+ */
+:root {
+  --ink: #14202e;
+  --ink-soft: #4a5566;
+  --paper: #eef1f4;
+  --surface: #ffffff;
+  --rule: #c3ccd8;
+  --field-edge: #8a97a8;
+  --cobalt: #2d4a8a;
+  --red: #a4262c;
+}
+
+[hidden] { display: none !important; }
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  width: 350px;
+  min-height: 400px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.panel {
+  min-height: 400px;
+  padding: 18px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.mark { width: 32px; height: 32px; flex: none; }
+
+h1 {
+  margin: 0;
+  font: 600 18px/1.2 Georgia, "Times New Roman", serif;
+}
+
+.tagline {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 9px 10px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--field-edge);
+  border-radius: 6px;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 2px;
+}
+
+.hint,
+.status {
+  margin: 6px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.error {
+  margin: 6px 0 0;
+  color: var(--red);
+  font-size: 12.5px;
+}
+
+.chips {
+  flex: 1;
+  min-height: 60px;
+  max-height: 170px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+.chip {
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 4px 3px 9px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.chip-x {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chip-x:hover {
+  background: #e4e9ef;
+  color: var(--red);
+}
+
+.empty {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.footer .status { margin: 0; }
+
+.ghost {
+  padding: 5px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.ghost:hover:not(:disabled) {
+  border-color: var(--cobalt);
+  color: var(--cobalt);
+}
+
+.ghost:disabled {
+  opacity: 0.45;
+  cursor: default;
+}

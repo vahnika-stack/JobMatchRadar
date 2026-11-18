@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "JobMatch Radar",
+  "version": "1.0.0",
+  "description": "See how your skills match a LinkedIn job posting, and which requirements you are missing. Runs entirely on your machine.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.linkedin.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["synonyms.js", "matcher.js", "content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "JobMatch Radar",
+    "default_popup": "popup.html"
+  }
+}
